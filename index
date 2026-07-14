@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
 <title>
-Scanner muestras
+Prueba Cámara
 </title>
 
 </head>
@@ -13,12 +17,59 @@ Scanner muestras
 <body>
 
 <h2>
-Scanner de muestras
+Prueba de cámara
 </h2>
 
-<p>
-Prueba de página activa
-</p>
+<button onclick="abrirCamara()">
+Abrir cámara
+</button>
+
+<br><br>
+
+<video
+id="video"
+autoplay
+playsinline
+style="width:100%;max-width:400px;">
+</video>
+
+
+<script>
+
+function abrirCamara(){
+
+navigator.mediaDevices
+.getUserMedia({
+
+video:{
+facingMode:"environment"
+}
+
+})
+
+.then(function(stream){
+
+document
+.getElementById("video")
+.srcObject = stream;
+
+})
+
+.catch(function(error){
+
+alert(
+
+error.name +
+"\n\n" +
+error.message
+
+);
+
+});
+
+}
+
+</script>
 
 </body>
 
