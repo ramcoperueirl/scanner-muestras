@@ -48,34 +48,41 @@ word-break:break-all;">
 
 function abrirCamara(){
 
-navigator.mediaDevices
-.getUserMedia({
+  const lector = new Html5Qrcode("qr-reader");
 
-video:{
-facingMode:"environment"
-}
+  lector.start(
 
-})
+    {
+      facingMode: "environment"
+    },
 
-.then(function(stream){
+    {
+      fps: 10,
+      qrbox: 250
+    },
 
-document
-.getElementById("video")
-.srcObject = stream;
+    function(textoLeido){
 
-})
+      document
+        .getElementById("resultado")
+        .innerHTML =
+        "QR leído:<br><br>" + textoLeido;
 
-.catch(function(error){
+      lector.stop();
 
-alert(
+    },
 
-error.name +
-"\n\n" +
-error.message
+    function(error){
 
-);
+      // Ignorar errores de lectura mientras busca el QR
 
-});
+    }
+
+  ).catch(function(error){
+
+    alert(error);
+
+  });
 
 }
 
