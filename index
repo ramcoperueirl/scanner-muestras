@@ -17,7 +17,7 @@ Prueba Cámara
 <body>
 
 <h2>
-Prueba de cámara
+PRUEBA DE CÁMARA VERSIÓN 2
 </h2>
 
 <button onclick="abrirCamara()">
