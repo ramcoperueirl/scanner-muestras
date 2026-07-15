@@ -22,12 +22,6 @@ Prueba Cámara
 PRUEBA DE CÁMARA VERSIÓN 2
 </h2>
 
-<button onclick="abrirCamara()">
-Abrir cámara
-</button>
-
-<br><br>
-
 <div
 id="qr-reader"
 style="width:100%;max-width:400px;">
@@ -85,6 +79,12 @@ function abrirCamara(){
 
 }
 
+window.onload = function(){
+
+  abrirCamara();
+
+};
+  
 </script>
 
 </body>
